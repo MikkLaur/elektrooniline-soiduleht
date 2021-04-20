@@ -1,0 +1,137 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<div class="containter">
+<div align="center" class="container">
+  <img  src="/static/images/kekw.jpg" c class="rounded-circle" alt="icon" width=
+"200px" height="200px">
+</div>
+
+  <form method = "POST">
+    <h3 align="center"> Add vehicle</h3>
+    <div class = "form-group">
+        <label for="mark">Mark</label>
+        <input type="text"
+               class="form-control"
+               id = "mark"
+               name = "mark"
+               placeholder="Enter mark"/>
+    </div>
+
+    <div class = "form-group">
+        <label for="model">Model</label>
+        <input type="text"
+               class="form-control"
+               id = "model"
+               name = "model"
+               placeholder="Enter model"/>
+    </div>
+
+    <div class = "form-group">
+        <label for="year">Year</label>
+        <input type="text"
+               class="form-control"
+               id = "year"
+               name = "year"
+               placeholder="Enter year"/>
+    </div>
+
+
+    <div class = "form-group">
+        <label for="regOdometer">Odometer</label>
+        <input type="text"
+               class="form-control"
+               id = "regOdometer"
+               name = "regOdometer"
+               placeholder="Enter odometer"/>
+    </div>
+
+
+    <div class = "form-group">
+        <label for="avgFuelCons">Fuel cons</label>
+        <input type="text"
+               class="form-control"
+               id = "avgFuelCons"
+               name = "avgFuelCons"
+               placeholder="Enter average fuel consumption"/>
+    </div>
+
+        <div class = "form-group">
+        <label for="vehicleTankCap">Tank Cap</label>
+        <input type="text"
+               class="form-control"
+               id = "vehicleTankCap"
+               name = "vehicleTankCap"
+               placeholder="Enter odometer"/>
+    </div>
+
+
+  <br>
+  <button type = "submit" class="btn btn-primary">ADD</button>
+</form>
+</div>
+<br />
+
+<div class="container bg-dark text-center text-white overflow-hidden" >
+    <h1  align="center">Masinad</h1>
+    <p  >{{current_user.first_name}} --- {{current_user.id }} --- {{current_user.email}}  </p>
+
+
+    <br />
+
+
+
+
+<div class="row" style="display:flex;">
+    {% for veh in user.vehicles %}
+ <div class="col-sm" align="center">
+    <div class="card" style="width: 18rem;">
+
+          <div class="card-body " style="margin-bottom:10px">
+            <h5 class="card-title text-muted"> {{ veh.mark }}</h5>
+            <p class="card-text text-muted">{{ veh.model }}</p>
+              <p class="card-text text-muted">Year: {{ veh.year }}</p>
+              <p class="card-text text-muted">Odomeeter: {{ veh.reg_odometer }}</p>
+              <p class="card-text text-muted">FuelCons: {{ veh.avg_fuel_cons }}</p>
+              <p class="card-text text-muted">TankCap: {{ veh.vehicle_tank_cap }}</p>
+               <p class="card-text text-muted">Owner ID: {{ veh.user_id }}</p>
+            <a href="#" class="btn btn-primary">Go to veh</a>
+        </div>
+
+   </div>
+  </div>
+    <br />
+     {% endfor %}
+      </div>
+</div>
+    <br />
+    <br />
+
+<!--
+
+<div class="container">
+<h1 align="center">Notes</h1>
+<p>{{current_user.id }}  {{current_user.email}}  {{current_user.first_name}}</p>
+<ul class="list-group list-group-flush" id="notes">
+  {% for note in user.notes %}
+  <li class="list-group-item">
+    {{ note.data }}
+    <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+<form method="POST">
+  <textarea name="note" id="note" class="form-control"></textarea>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Add Note</button>
+  </div>
+</form>
+
+</div>
+-->
+
+
+{% endblock %}
+
