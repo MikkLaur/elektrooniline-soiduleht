@@ -1,0 +1,4 @@
+pytest
+flask-login
+Flask-SQLAlchemy
+Flask
