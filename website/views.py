@@ -58,27 +58,22 @@ def delete_note():
 @login_required
 def record(vehicle_id):
 
-
-
-    print(current_user.id)
     veh = Vehicle.query.filter_by(id=vehicle_id).first_or_404()
-    print(veh.user_id)
+    rec = Record.query.filter_by(vehicle_id=veh.user_id).first_or_404()
+
+
     if request.method == 'POST':
         refillDate = request.form.get('refillDate')
-        print(refillDate)
-
-        print("today: " + str(datetime.strptime(refillDate, '%Y-%m-%d').date()))
-
         refillSize = request.form.get('refillSize')
         odometer = request.form.get('odometer')
         fuelLeft = request.form.get('fuelLeft')
         avgSpeed = request.form.get('avgSpeed')
-
         strDateToDate = datetime.strptime(refillDate, '%Y-%m-%d').date()
         new_record = Record(vehicle_id=vehicle_id, refill_date=strDateToDate, refill_size=refillSize,
                             odometer=odometer, fuel_left=fuelLeft, avg_speed=avgSpeed)
         db.session.add(new_record)
         db.session.commit()
+
         flash('New record added to database', category='success')
 
     return render_template("record.html", user=current_user, vehicle=veh)

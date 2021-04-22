@@ -1,13 +1,42 @@
-{% extends "base.html" %} {% block title %} record {% endblock %}
+{% extends "base.html" %} {% block title %} RECORD {% endblock %}
 
 {% block content%}
 {% if current_user.id == vehicle.user_id %}
-<h1>{{vehicle.mark}}</h1>
-<h1>{{vehicle.user_id}}</h1>
+
+<div class="container">
+    <h1 align="center">Records</h1>
+    <p align="center">Mark: {{vehicle.mark}}<br>Model: {{vehicle.model}}<br>Year: {{vehicle.year}}<br>Registration date: {{vehicle.reg_date}}</p>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Refill Date</th>
+      <th scope="col">Refill Size</th>
+      <th scope="col">Fuel Left</th>
+      <th scope="col">Odometer</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for rec in vehicle.records %}
+    <tr>
+      <td>{{ rec.vehicle_id }}</td>
+      <td>{{ rec.refill_date }}</td>
+      <td>{{ rec.refill_size }} l.</td>
+      <td>{{ rec.fuel_left }} l.</td>
+      <td>{{ rec.odometer }} km</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+    </ul>
+
+</div>
+
 <div class="containter">
 </div>
   <form method = "POST">
-    <h3 align="center"> NEW REFILL RECORD</h3>
+    <h3 align="center"> INSERT NEW REFILL RECORD</h3>
     <div class = "form-group">
         <label for="refillDate">Refill date</label>
         <input type="date"

@@ -32,6 +32,7 @@ class Vehicle(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     records = db.relationship('Record')
 
+
 class Record(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     datetime = db.Column(db.DateTime(timezone=True), default=func.now())
