@@ -1,6 +1,8 @@
+from datetime import datetime
+
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
-from .models import Note, Vehicle
+from .models import Note, Vehicle, Record
 from . import db
 import json
 
@@ -12,7 +14,6 @@ views = Blueprint('views', __name__)
 def home():
 
     if request.method == 'POST':
-
         mark = request.form.get('mark')
         model = request.form.get('model')
         year = request.form.get('year')
@@ -24,7 +25,7 @@ def home():
                           avg_fuel_cons=avgFuelCons, vehicle_tank_cap=vehicleTankCap, user_id=current_user.id)
         db.session.add(new_veh)
         db.session.commit()
-        flash('DONE', category= 'success')
+        flash('DONE', category='success')
 
         #note = request.form.get('note')
         #
@@ -53,6 +54,31 @@ def delete_note():
     return jsonify({})
 
 
-# @views.route('/vehicle', methods=['GET', 'POST'])
-# def vehicle():
-#     return render_template("vehicle.html", user=current_user)
+@views.route('/record/<vehicle_id>', methods=['GET', 'POST'])
+@login_required
+def record(vehicle_id):
+
+
+
+    print(current_user.id)
+    veh = Vehicle.query.filter_by(id=vehicle_id).first_or_404()
+    print(veh.user_id)
+    if request.method == 'POST':
+        refillDate = request.form.get('refillDate')
+        print(refillDate)
+
+        print("today: " + str(datetime.strptime(refillDate, '%Y-%m-%d').date()))
+
+        refillSize = request.form.get('refillSize')
+        odometer = request.form.get('odometer')
+        fuelLeft = request.form.get('fuelLeft')
+        avgSpeed = request.form.get('avgSpeed')
+
+        strDateToDate = datetime.strptime(refillDate, '%Y-%m-%d').date()
+        new_record = Record(vehicle_id=vehicle_id, refill_date=strDateToDate, refill_size=refillSize,
+                            odometer=odometer, fuel_left=fuelLeft, avg_speed=avgSpeed)
+        db.session.add(new_record)
+        db.session.commit()
+        flash('New record added to database', category='success')
+
+    return render_template("record.html", user=current_user, vehicle=veh)

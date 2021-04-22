@@ -1,5 +1,6 @@
 {% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
 %}
+
 <div class="containter">
 <div align="center" class="container">
   <img  src="/static/images/kekw.jpg" c class="rounded-circle" alt="icon" width=
@@ -94,7 +95,7 @@
               <p class="card-text text-muted">FuelCons: {{ veh.avg_fuel_cons }}</p>
               <p class="card-text text-muted">TankCap: {{ veh.vehicle_tank_cap }}</p>
                <p class="card-text text-muted">Owner ID: {{ veh.user_id }}</p>
-            <a href="#" class="btn btn-primary">Go to veh</a>
+            <a href="/record/{{ veh.id }}" class="btn btn-primary">Go to veh</a>
         </div>
 
    </div>

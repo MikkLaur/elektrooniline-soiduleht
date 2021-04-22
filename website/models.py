@@ -30,6 +30,19 @@ class Vehicle(db.Model):
     avg_fuel_cons = db.Column(db.Integer)
     vehicle_tank_cap = db.Column(db.Integer)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    records = db.relationship('Record')
+
+class Record(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    datetime = db.Column(db.DateTime(timezone=True), default=func.now())
+    vehicle_id = db.Column(db.Integer, db.ForeignKey('vehicle.id'))
+    refill_date = db.Column(db.Date)
+    odometer = db.Column(db.Integer)
+    refill_size = db.Column(db.Integer)
+    fuel_left = db.Column(db.Float)
+    avg_speed = db.Column(db.Float)
+
+
 
 
 

@@ -1,0 +1,68 @@
+{% extends "base.html" %} {% block title %} record {% endblock %}
+
+{% block content%}
+{% if current_user.id == vehicle.user_id %}
+<h1>{{vehicle.mark}}</h1>
+<h1>{{vehicle.user_id}}</h1>
+<div class="containter">
+</div>
+  <form method = "POST">
+    <h3 align="center"> NEW REFILL RECORD</h3>
+    <div class = "form-group">
+        <label for="refillDate">Refill date</label>
+        <input type="date"
+               class="form-control"
+               id = "refillDate"
+               name = "refillDate"
+               placeholder="Enter refill date"/>
+    </div>
+
+    <div class = "form-group">
+        <label for="refillSize">Refill size</label>
+        <input type="text"
+               class="form-control"
+               id = "refillSize"
+               name = "refillSize"
+               placeholder="Enter refill size"/>
+    </div>
+
+    <div class = "form-group">
+        <label for="odometer">Odometer</label>
+        <input type="text"
+               class="form-control"
+               id = "odometer"
+               name = "odometer"
+               placeholder="Enter year"/>
+    </div>
+
+
+    <div class = "form-group">
+        <label for="fuelLeft">Fuel left</label>
+        <input type="text"
+               class="form-control"
+               id = "fuelLeft"
+               name = "fuelLeft"
+               placeholder="Enter left fuel"/>
+    </div>
+
+
+    <div class = "form-group">
+        <label for="avgSpeed">Average speed</label>
+        <input type="text"
+               class="form-control"
+               id = "avgSpeed"
+               name = "avgSpeed"
+               placeholder="Enter average speed"/>
+    </div>
+
+
+  <br>
+  <button type = "submit" class="btn btn-primary">ADD</button>
+</form>
+</div>
+{% else %}
+<h1> NO ACCES!!</h1>
+
+{% endif %}
+<br />
+{% endblock %}
