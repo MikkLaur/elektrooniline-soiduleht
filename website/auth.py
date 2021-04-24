@@ -55,7 +55,7 @@ def signup():
         elif password1 != password2:
             flash('password dont match', category='error')
             pass
-        elif len(password1) < 7:
+        elif len(password1) < 6:
             flash('Password to short. At least 6char.', category='error')
             pass
         else:
