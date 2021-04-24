@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
 from flask_login import login_user, login_required, logout_user, current_user
 
+
 auth = Blueprint('auth', __name__)
 
 
@@ -48,16 +49,12 @@ def signup():
             flash('Email already exists', category='error')
         elif len(email) < 4:
             flash('email must be greater than 3 char', category='error')
-            pass
         elif len(first_name) < 2:
             flash('firstName must be greater than 1 char', category='error')
-            pass
         elif password1 != password2:
             flash('password dont match', category='error')
-            pass
         elif len(password1) < 6:
             flash('Password to short. At least 6char.', category='error')
-            pass
         else:
             # add user to database
             new_user = User(email=email, first_name=first_name,

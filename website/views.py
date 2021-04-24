@@ -59,7 +59,9 @@ def delete_note():
 def record(vehicle_id):
 
     veh = Vehicle.query.filter_by(id=vehicle_id).first_or_404()
-    rec = Record.query.filter_by(vehicle_id=veh.user_id).first_or_404()
+    # If vehicle has no records, this line will 404 the page.
+    # e.g a newly registered vehicle will not have records
+    #rec = Record.query.filter_by(vehicle_id=veh.user_id).first_or_404()
 
 
     if request.method == 'POST':
