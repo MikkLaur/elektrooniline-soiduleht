@@ -1,0 +1,198 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24.04.2021, 20:52:43
+    Author     : german
+*/
+body {
+    color: #C1C2C4;
+    background-color: #2A2D34;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.6em;
+}
+
+/*Smooth transitions*/
+*, *::before, *::after 
+{
+    transition: all .3s ease-in-out;
+}
+
+/*Nav-bar padding*/ 
+.nav-padding
+{
+    padding-left: 200px; 
+    padding-right: 200px;
+    background: linear-gradient(0deg,transparent,rgb(0 0 0 / 67%))!important;
+    border-bottom: 1px solid transparent!important;
+    border-bottom-color: rgba(255,255,255,.4)!important;
+    z-index: 1000;
+}
+
+/*Background*/
+.overlay
+{
+    background-image: url("../images/back11.jpg");
+    /*background-position: top center;*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 1;
+}
+
+.wrapper {
+    display: block;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+/* Intro Article */
+.intro-row {
+    color: #FFFFFF;
+    padding: 240px 0;
+}
+
+.intro-text {
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f1f1f1;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 50%;
+    padding: 40px;
+    text-align: center;
+    margin-top: -25px;
+}
+.intro-text h1
+{
+    color: white;
+}
+
+/*Second row*/
+.second-row
+{
+    background-color: #f1f1f1;
+    padding: 170px 0;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.uk-card
+{
+    text-align: center;
+}
+
+.icon-background
+{
+    box-sizing: border-box;
+    width: 70px;
+    height: 70px;
+    border-radius: 500px!important;
+    background-color: #FF9900!important;
+    color: #6e6e6e!important;
+    vertical-align: middle;
+    display: inline-flex!important;
+    justify-content: center;
+    align-items: center;
+}
+
+/*Footer*/
+footer 
+{
+    background-color: #393939;
+    color: #ff5a09;
+    text-align: center;
+    padding: 15px 0;
+}
+
+footer p 
+{
+    margin: 0;
+}
+
+.sign-button
+{
+    background-color: #ff5a09!important;
+    color: white!important;
+}
+
+/*Responsiveness*/
+
+.mobile
+{
+    display: none;
+}
+.uk-offcanvas-bar
+{
+    background: #2A2D34!important;
+}
+
+@media screen and (max-width:978px){
+    .nav-padding
+    {
+        padding-left: 100px; 
+        padding-right: 100px;
+    }
+}
+@media screen and (max-width:778px){
+    .nav-padding
+    {
+        padding-left: 20px; 
+        padding-right: 20px;
+    }
+    .desktop
+    {
+        display: none;
+    }
+    .mobile
+    {
+        display: block;
+    }
+    .second-row
+    {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+}
+
+@media screen and (max-width:450px){
+    .nav-padding
+    {
+        padding-left: 0px; 
+        padding-right: 0px;
+    }
+    .desktop
+    {
+        display: none;
+    }
+    .mobile
+    {
+        display: block;
+    }
+    .second-row
+    {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+
+
+
