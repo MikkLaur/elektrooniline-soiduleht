@@ -49,12 +49,19 @@ and open the template in the editor.
                         </div>
 
 
-
+                        {% if user.is_authenticated %}
+                        <div class="uk-navbar-right">
+                            <ul class="uk-navbar-nav">
+                                <li><a style="color: white;" href="/logout" uk-toggle>Log Out</a></li>
+                            </ul>
+                        </div>
+                        {% else %}
                         <div class="uk-navbar-right">
                             <ul class="uk-navbar-nav">
                                 <li><a style="color: white;" href="#modal-group-2" uk-toggle>Sign in / Sign up</a></li>
                             </ul>
                         </div>
+                        {% endif %}
 
 
 
@@ -104,65 +111,78 @@ and open the template in the editor.
 
                             <ul class="uk-switcher uk-margin">
                                 <li>
-                                    <form class="uk-form-horizontal">
+                                    <form class="uk-form-horizontal" method = "POST" action="/login">
                                         <div class="uk-margin">
-                                            <label class="uk-form-label" for="form-horizontal-text">E-mail<span style="color: red;">*</span></label>
+                                            <label class="uk-form-label" for="email">E-mail<span style="color: red;">*</span></label>
                                             <div class="uk-inline">
                                                 <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                                                <input class="uk-input" type="email" placeholder="email@gmail.com">
+                                                <input type="email" class="uk-input" id= "email" name= "email"  placeholder="email@gmail.com" required/>
                                             </div>
                                         </div>
                                         <div class="uk-margin">
-                                            <label class="uk-form-label" for="form-horizontal-text">Password<span style="color: red;">*</span></label>
+                                            <label class="uk-form-label" for="password">Password<span style="color: red;">*</span></label>
                                             <div class="uk-inline">
                                                 <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                                                <input class="uk-input" type="password" placeholder="••••••••">
+                                                <input type="password" class="uk-input" id= "password" name= "password" placeholder="••••••••" required/>
                                             </div>
                                         </div>
-                                    </form>
                                     <div class="uk-modal-footer uk-text-right">
                                         <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                                        <a href="#modal-group-2" class="uk-button sign-button" uk-toggle>Sign In</a>
+                                        <button type= "submit" class="uk-button sign-button" uk-toggle>Sign in</button>
                                     </div>
+                                    </form>
                                 </li>
 
 
 
                                 <li>
-                                    <form class="uk-form-horizontal">
-                                        <div class="uk-margin">
-                                            <label class="uk-form-label" for="form-horizontal-text">E-mail<span style="color: red;">*</span></label>
-                                            <div class="uk-inline">
-                                                <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                                                <input class="uk-input" type="email" placeholder="email@gmail.com">
+                                    <form class="uk-form-horizontal" method = "POST" action="/sign-up">
+                                        <div class="form-group">
+                                            <div class="uk-margin">
+                                                <label class="uk-form-label" for="email">E-mail<span style="color: red;">*</span></label>
+                                                <div class="uk-inline">
+                                                    <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                                                    <input type="email" class="uk-input" id = "email1" name = "email1" placeholder="Enter email" required/>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="uk-margin">
-                                            <label class="uk-form-label" for="form-horizontal-text">Full Name<span style="color: red;">*</span></label>
-                                            <div class="uk-inline">
-                                                <span class="uk-form-icon" uk-icon="icon: user"></span>
-                                                <input class="uk-input" type="name" placeholder="John Lynch">
+
+                                        <div class="form-group">
+                                            <div class="uk-margin">
+                                                <label class="uk-form-label" for="firstName">Full Name<span style="color: red;">*</span></label>
+                                                <div class="uk-inline">
+                                                    <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                                    <input type="text" class="uk-input"  id="firstName" name="firstName" placeholder="John Lynch" required/>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="uk-margin">
-                                            <label class="uk-form-label" for="form-horizontal-text">Password<span style="color: red;">*</span></label>
-                                            <div class="uk-inline">
-                                                <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                                                <input class="uk-input" type="password" placeholder="••••••••">
+
+                                        <div class="form-group">
+                                            <div class="uk-margin ">
+                                                <label class="uk-form-label" for="password1">Password<span style="color: red;">*</span></label>
+                                                <div class="uk-inline">
+                                                    <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                                    <input type="password" class="uk-input" id="password1" name="password1" placeholder="••••••••" required/>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="uk-margin">
-                                            <label class="uk-form-label" for="form-horizontal-text">Confirm Password<span style="color: red;">*</span></label>
-                                            <div class="uk-inline">
-                                                <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                                                <input class="uk-input" type="password" placeholder="••••••••">
+
+                                        <div class="form-group">
+                                            <div class="uk-margin">
+                                                <label class="uk-form-label" for="password2">Confirm Password<span style="color: red;">*</span></label>
+                                                <div class="uk-inline">
+                                                    <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                                    <input type="password" class="uk-input" id="password2" name="password2" placeholder="••••••••" required/>
+                                                </div>
                                             </div>
                                         </div>
-                                    </form>
+
                                     <div class="uk-modal-footer uk-text-right">
                                         <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                                        <a href="#modal-group-2" class="uk-button sign-button" uk-toggle>Sign Up</a>
+<!--                                        <a href="/login" class="uk-button sign-button" uk-toggle>Sign Up</a>-->
+                                        <button type= "submit" class="uk-button sign-button" uk-toggle>Sign Up</button>
                                     </div>
+                                    </form>
                                 </li>
                             </ul>
                         </div>

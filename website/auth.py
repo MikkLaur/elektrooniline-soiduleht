@@ -11,13 +11,13 @@ auth = Blueprint('auth', __name__)
 @auth.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
+
         email = request.form.get('email')
         password = request.form.get('password')
-
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password,password):
-                 flash('Logged in succesfully!', category='sucess')
+                 flash('Logged in succesfully!', category='success')
                  login_user(user, remember=True)
                  return redirect(url_for('views.home'))
 
@@ -26,7 +26,7 @@ def login():
         else:
             flash('Email doesnt exist',category='error')
 
-    return render_template('login.html', user=current_user)
+    return render_template('index.html', user=current_user)
 
 
 @auth.route('/logout')
@@ -39,7 +39,7 @@ def logout():
 @auth.route('/sign-up', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
-        email = request.form.get('email')
+        email = request.form.get('email1')
         first_name = request.form.get('firstName')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
@@ -65,4 +65,4 @@ def signup():
             flash('Acc created', category='success')
             return redirect(url_for('views.home'))
 
-    return render_template('sign_up.html', user=current_user)
+    return render_template('account.html', user=current_user)

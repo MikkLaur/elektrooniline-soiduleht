@@ -10,32 +10,22 @@ views = Blueprint('views', __name__)
 
 
 @views.route('/', methods=['GET', 'POST'])
-@login_required
 def home():
 
-    if request.method == 'POST':
-        mark = request.form.get('mark')
-        model = request.form.get('model')
-        year = request.form.get('year')
-        regOdometer = request.form.get('regOdometer')
-        avgFuelCons = request.form.get('avgFuelCons')
-        vehicleTankCap = request.form.get('vehicleTankCap')
 
-        new_veh = Vehicle(mark=mark, model=model, year=year, reg_odometer=regOdometer,
-                          avg_fuel_cons=avgFuelCons, vehicle_tank_cap=vehicleTankCap, user_id=current_user.id)
-        db.session.add(new_veh)
-        db.session.commit()
-        flash('DONE', category='success')
-
-        #note = request.form.get('note')
-        #
-        # if len(note) < 1:
-        #     flash('Note is too short!', category='error')
-        # else:
-        #     new_note = Note(data=note, user_id=current_user.id)
-        #     db.session.add(new_note)
-        #     db.session.commit()
-        #     flash('Note added!', category='success')
+    # if request.method == 'POST':
+    #     mark = request.form.get('mark')
+    #     model = request.form.get('model')
+    #     year = request.form.get('year')
+    #     regOdometer = request.form.get('regOdometer')
+    #     avgFuelCons = request.form.get('avgFuelCons')
+    #     vehicleTankCap = request.form.get('vehicleTankCap')
+    #
+    #     new_veh = Vehicle(mark=mark, model=model, year=year, reg_odometer=regOdometer,
+    #                       avg_fuel_cons=avgFuelCons, vehicle_tank_cap=vehicleTankCap, user_id=current_user.id)
+    #     db.session.add(new_veh)
+    #     db.session.commit()
+    #     flash('DONE', category='success')
 
     return render_template("index.html", user=current_user)
 
@@ -79,3 +69,10 @@ def record(vehicle_id):
         flash('New record added to database', category='success')
 
     return render_template("record.html", user=current_user, vehicle=veh)
+
+
+@views.route('/account')
+@login_required
+def account():
+
+    return render_template("account.html")
