@@ -10,7 +10,7 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <!-- Main CSS -->
-        <link href="static/css/main.css" rel="stylesheet" type="text/css"/>
+        <link href="../static/css/main.css" rel="stylesheet" type="text/css"/>
         <!-- UIkit CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/css/uikit.min.css" />
 
@@ -18,9 +18,15 @@ and open the template in the editor.
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit-icons.min.js"></script>
 
+        <!-- Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
     </head>
     <body>
-        <div class="overlay" uk-parallax="target: #test-filter; blur: 0,10;"> 
+        <div class="overlay" uk-parallax="target: #test-filter; blur: 0,10;">
             <div class="wrapper">
                 <header class="desktop">
                     <nav class="uk-navbar-container uk-margin nav-padding" uk-navbar>
@@ -52,7 +58,17 @@ and open the template in the editor.
                         {% if user.is_authenticated %}
                         <div class="uk-navbar-right">
                             <ul class="uk-navbar-nav">
-                                <li><a style="color: white;" href="/logout" uk-toggle>Log Out</a></li>
+                                <li>
+                                    <a style="color: white;" href="#">My profile</a>
+                                    <div class="uk-navbar-dropdown">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                            <li><a href="#">My Cars</a></li>
+                                            <li><a href="#">Edit Profile</a></li>
+                                            <li class="uk-nav-divider"></li>
+                                            <li><a style="color:#FF5A09" href="/logout">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                         {% else %}
@@ -97,8 +113,8 @@ and open the template in the editor.
                         </div>
                     </nav>
                 </header>
-                
-                
+
+
                 <div id="modal-group-2" uk-modal>
                     <div class="uk-modal-dialog">
                         <button class="uk-modal-close-default" type="button" uk-close></button>
@@ -190,7 +206,7 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
-            <div class="intro-row"> 
+            <div class="intro-row">
                 <article>
                     <div class="intro-text uk-animation-fade uk-animation-slow">
                         <h1>SÕIDULEHT</h1>
@@ -202,6 +218,74 @@ and open the template in the editor.
 
 
         <div class="second-row">
+            <div class="uk-child-width-1-2@m uk-grid-small uk-grid-match" uk-grid>
+                <div>
+                    <div class="r-card repair-card uk-card uk-card-hover uk-card-body">
+                        <div class="r-hover uk-overlay uk-overlay-primary uk-position-bottom uk-text-center">
+                            <h3 class="uk-margin-remove">REPAIR</h3>
+                            <p class="uk-margin-remove">Click to add repair entry.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="r-card refill-card uk-card uk-card-hover uk-card-body" href="#modal-full" uk-toggle>
+                        <div class="r-hover uk-overlay uk-overlay-primary uk-position-bottom uk-text-center">
+                            <h3 class="uk-margin-remove">REFILL</h3>
+                            <p class="uk-margin-remove">Click to add refill entry.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="modal-full" class="uk-modal-full" uk-modal>
+            <div class="uk-modal-dialog">
+                <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+                <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
+                    <div class="uk-background-cover" style="background-image: url('../static/images/back11.jpg');" uk-height-viewport></div>
+                    <div class="uk-padding-large">
+                        <h1>Refill Entry</h1>
+                        <!--<p>Add refill entry</p>-->
+                        <form class="uk-form-stacked">
+                            <label class="uk-form-label" for="form-stacked-text1">Refill Date</label>
+
+                                <div class="uk-inline">
+                                    <span style="color:#FF5A09; cursor: pointer!important;" class="uk-form-icon uk-form-icon-flip" uk-icon="icon: calendar"></span>
+                                    <input class="uk-input refill-input" id="datepicker" placeholder="DD/MM/YYYY" />
+                                </div>
+
+                            <script>
+                                $('#datepicker').datepicker({
+                                    uiLibrary: 'bootstrap4'
+                                });
+                            </script>
+
+
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="form-stacked-text1">Refill Size</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input refill-input" id="form-stacked-text1" type="number" placeholder="00.00">
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="form-stacked-text2">Refill Price</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input refill-input" id="form-stacked-text2" type="number" placeholder="00.00">
+                                </div>
+                            </div>
+                            <div class="uk-margin">
+                                <label class="uk-form-label" for="form-stacked-text3">Odometer</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input refill-input" id="form-stacked-text3" type="number" placeholder="000000">
+                                </div>
+                            </div>
+                            <button class="refill-btn uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Add Refill Entry</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="third-row">
             <div class="uk-animation-slide-bottom uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid>
                 <div>
                     <div class="card uk-card uk-card-default uk-card-hover uk-card-body">

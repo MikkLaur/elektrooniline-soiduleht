@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Refill Table</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <!-- Main CSS -->
+        <link href="css/main.css" rel="stylesheet" type="text/css"/>
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/css/uikit.min.css" />
+
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit-icons.min.js"></script>
+
+        <!-- Bootstrap 
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />-->
+
+    </head>
+    <body>
+        <div class="overlay"> 
+            <div class="wrapper">
+                <header class="desktop">
+                    <nav class="uk-navbar-container uk-margin nav-padding" uk-navbar>
+                        <div class="uk-navbar-left">
+
+                            <a class="uk-navbar-item uk-logo" style="color: white;" href="index.html"><span style="color:#FF5A09">L</span>ogo</a>
+                        </div>
+
+                        <div class="uk-navbar-center">
+                            <ul class="uk-navbar-nav">
+                                <li class="uk-active"><a style="color: #FF5A09;" href="#">Home</a></li>
+                                <li><a style="color: white;" href="#">About Us</a></li>
+                                <li><a style="color: white;" href="#">Contact Us</a></li>
+                                <!--<li>
+                                    <a style="color: white;" href="#">About Us</a>
+                                    <div class="uk-navbar-dropdown">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                            <li class="uk-active"><a style="color: white;" href="#">Contact Us</a></li>
+                                            <li><a href="#">Item</a></li>
+                                            <li><a href="#">Item</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a style="color: white;" href="#">Item</a></li>-->
+                            </ul>
+                        </div>
+
+
+
+                        <div class="uk-navbar-right">
+                            <ul class="uk-navbar-nav">
+                                <li>
+                                    <a style="color: white;" href="#">My profile</a>
+                                    <div class="uk-navbar-dropdown">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                            <li><a href="#">My Cars</a></li>
+                                            <li><a href="#">Edit Profile</a></li>
+                                            <li class="uk-nav-divider"></li>
+                                            <li><a style="color:#FF5A09" href="#">Logout</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+
+
+                    </nav>
+                </header>
+                <header class="mobile">
+                    <nav class="uk-navbar-container uk-margin nav-padding" uk-navbar>
+                        <div class="uk-navbar-center">
+
+                            <a class="uk-navbar-item uk-logo" style="color: white;" href="#"><span style="color:#FF5A09">L</span>ogo</a>
+                        </div>
+
+                        <div class="uk-navbar-left">
+                            <a class="uk-navbar-toggle" href="#">
+                                <a href="#offcanvas-slide" style="color:white;text-decoration: none;" uk-toggle><span style="color:#FF5A09;" uk-navbar-toggle-icon></span> Menu</a>
+                            </a>
+                        </div>
+
+                        <div id="offcanvas-slide" uk-offcanvas>
+                            <div class="uk-offcanvas-bar">
+
+                                <ul class="uk-nav uk-nav-default">
+                                    <li class="uk-nav-header" style="padding-bottom: 28px;">Header</li>
+                                    <li class="uk-nav-divider"></li>
+                                    <li class="active"><a href="#" style="color:#FF5A09">Home</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li class="uk-nav-divider"></li>
+                                    <li><a style="color: white;" href="#modal-group-2" uk-toggle>Sign in / Sign up</a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+
+
+                <div id="modal-group-2" uk-modal>
+                    <div class="uk-modal-dialog">
+                        <button class="uk-modal-close-default" type="button" uk-close></button>
+                        <div class="uk-modal-header">
+                            <!--<h2 class="uk-modal-title">Headline 2</h2>-->
+                            <ul uk-tab>
+                                <li><a href="#">Sing In</a></li>
+                                <li><a href="#">Sign Up</a></li>
+                            </ul>
+
+                            <ul class="uk-switcher uk-margin">
+                                <li>
+                                    <form class="uk-form-horizontal">
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label" for="form-horizontal-text">E-mail<span style="color: red;">*</span></label>
+                                            <div class="uk-inline">
+                                                <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                                                <input class="uk-input" type="email" placeholder="email@gmail.com">
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label" for="form-horizontal-text">Password<span style="color: red;">*</span></label>
+                                            <div class="uk-inline">
+                                                <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                                <input class="uk-input" type="password" placeholder="••••••••">
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="uk-modal-footer uk-text-right">
+                                        <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                                        <a href="#modal-group-2" class="uk-button sign-button" uk-toggle>Sign In</a>
+                                    </div>
+                                </li>
+
+
+
+                                <li>
+                                    <form class="uk-form-horizontal">
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label" for="form-horizontal-text">E-mail<span style="color: red;">*</span></label>
+                                            <div class="uk-inline">
+                                                <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                                                <input class="uk-input" type="email" placeholder="email@gmail.com">
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label" for="form-horizontal-text">Full Name<span style="color: red;">*</span></label>
+                                            <div class="uk-inline">
+                                                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                                <input class="uk-input" type="name" placeholder="John Lynch">
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label" for="form-horizontal-text">Password<span style="color: red;">*</span></label>
+                                            <div class="uk-inline">
+                                                <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                                <input class="uk-input" type="password" placeholder="••••••••">
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label" for="form-horizontal-text">Confirm Password<span style="color: red;">*</span></label>
+                                            <div class="uk-inline">
+                                                <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                                <input class="uk-input" type="password" placeholder="••••••••">
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="uk-modal-footer uk-text-right">
+                                        <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                                        <a href="#modal-group-2" class="uk-button sign-button" uk-toggle>Sign Up</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="refill-table-intro-row"> 
+                <a class="uk-button uk-button-default filter-btn" href="#modal-sections" uk-toggle>Filter</a>
+
+                <div class="uk-overflow-auto uk-position-relative table-container" uk-filter="target: .js-filter; duration:0;">
+
+
+
+                    <div id="modal-sections" uk-modal>
+                        <div class="uk-modal-dialog">
+                            <button class="uk-modal-close-default" type="button" uk-close></button>
+                            <div class="uk-modal-header">
+                                <h2 class="uk-modal-title">Filter</h2>
+                            </div>
+                            <div class="uk-modal-body">
+                                <ul class="uk-subnav uk-subnav-pill asc-dsc-btn">
+                                    <li onclick="ActivateAsc()" id="asc-btn" class="uk-active"><a href="#">Ascending</a></li>
+                                    <li onclick="ActivateDsc()" id="dsc-btn"><a href="#">Descending</a></li>
+                                </ul>
+                            </div>
+                            <div class="uk-modal-footer uk-text-right">
+                                <button class="uk-button uk-button-default uk-modal-close" type="button">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="uk-subnav uk-subnav-pill">
+                        <li id="asc-btn-temp" class="uk-active" uk-filter-control="sort: data-date"><a href="#">Ascending</a></li>
+                        <li id="dsc-btn-temp" uk-filter-control="sort: data-date; order: desc"><a href="#">Descending</a></li>
+                    </ul>
+
+
+                    <table class="uk-table uk-table-small uk-table-divider uk-position-relative">
+                        <thead>
+                            <tr>
+                                <th>Vehicle ID</th>
+                                <th>Refill Date</th>
+                                <th>Refill Size</th>
+                                <th>Refill Price</th>
+                                <th>Odometer</th>
+                            </tr>
+                        </thead>
+                        <tbody class="js-filter">
+                            <tr data-date="2020-02-04">
+                                <td>11</td>
+                                <td>2020-02-04</td>
+                                <td>200.00</td>
+                                <td>20.00</td>
+                                <td>180000</td>
+                            </tr>
+                            <tr data-date="2024-02-04">
+                                <td>11</td>
+                                <td>2024-02-04</td>
+                                <td>20.00</td>
+                                <td>20.00</td>
+                                <td>999000</td>
+                            </tr>
+                            <tr data-date="2019-02-04">
+                                <td>11</td>
+                                <td>2019-02-04</td>
+                                <td>200.00</td>
+                                <td>20.00</td>
+                                <td>1800000</td>
+                            </tr>
+                            <tr data-date="2016-02-04">
+                                <td>11</td>
+                                <td>2016-02-04</td>
+                                <td>200.00</td>
+                                <td>20.00</td>
+                                <td>1800000</td>
+                            </tr>
+                            <tr data-date="2020-02-04">
+                                <td>11</td>
+                                <td>2020-02-04</td>
+                                <td>200.00</td>
+                                <td>20.00</td>
+                                <td>180000</td>
+                            </tr>
+                            <tr data-date="2024-02-04">
+                                <td>11</td>
+                                <td>2024-02-04</td>
+                                <td>20.00</td>
+                                <td>20.00</td>
+                                <td>999000</td>
+                            </tr>
+                            <tr data-date="2019-02-04">
+                                <td>11</td>
+                                <td>2019-02-04</td>
+                                <td>200.00</td>
+                                <td>20.00</td>
+                                <td>1800000</td>
+                            </tr>
+                            <tr data-date="2016-02-04">
+                                <td>11</td>
+                                <td>2016-02-04</td>
+                                <td>200.00</td>
+                                <td>20.00</td>
+                                <td>1800000</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!--<div class="second-row">
+            <form class="uk-form-stacked">
+                <label class="uk-form-label" for="form-stacked-text">Refill Date</label>
+                <input class="uk-input" id="datepicker" placeholder="DD/MM/YYYY" />
+                <script>
+                    $('#datepicker').datepicker({
+                        uiLibrary: 'bootstrap4'
+                    });
+                </script>
+
+
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Refill Size</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="form-stacked-text" type="number" placeholder="00.00">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-stacked-text">Odometer</label>
+                    <div class="uk-form-controls">
+                        <input class="uk-input" id="form-stacked-text" type="number" placeholder="000000">
+                    </div>
+                </div>
+            </form>
+        </div>-->
+        <footer>
+            <p>Copyright © 2021. All Rights Reserved.</p>
+        </footer>
+        <script>
+            function ActivateAsc() {
+                document.getElementById("asc-btn-temp").click();
+                ;
+                document.getElementById("dsc-btn").classList.remove("uk-active");
+                document.getElementById("asc-btn").classList.add("uk-active");
+            }
+            function ActivateDsc() {
+                document.getElementById("dsc-btn-temp").click();
+                ;
+                document.getElementById("asc-btn").classList.remove("uk-active");
+                document.getElementById("dsc-btn").classList.add("uk-active");
+            }
+        </script>
+    </body>
+
+</html>
