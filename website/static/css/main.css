@@ -400,4 +400,50 @@ footer p
 }
 
 
+/*#########################*/
+/*My Cars*/
+/*#########################*/
+/* Intro Article */
+
+.m-c-first-row
+{
+    text-align: center;
+}
+
+.m-c-first-row img
+{
+    box-shadow: 0px 0px 7px rgb(0 0 0);
+}
+
+.m-c-btn-add
+{
+    background-color: #0bc351!important;
+    color: white!important;
+}
+
+.m-c-btn-add:hover
+{
+    background-color: #0bb94e!important;
+}
+.m-c-btn-add:active
+{
+    background-color: #09a043!important;
+}
+
+.m-c-btn-remove
+{
+    background-color: #f50f0f!important;
+    color: white!important;
+}
+
+.m-c-btn-remove:hover
+{
+    background-color: #e40e0e!important;
+}
+.m-c-btn-remove:active
+{
+    background-color: #d20d0d!important;
+}
+
+
 
