@@ -65,8 +65,20 @@ def account():
     return render_template("account.html", user=current_user)
 
 
-@views.route('/mycars')
+@views.route('/mycars', methods=['GET', 'POST'])
 @login_required
 def mycars():
+    if request.method == 'POST':
+        mark = request.form.get('make')
+        model = request.form.get('model')
+        year = request.form.get('year')
+        regOdometer = request.form.get('regOdometer')
+        avgFuelCons = request.form.get('avgFuelCons')
+        vehicleTankCap = request.form.get('tankCap')
 
+        new_veh = Vehicle(mark=mark, model=model, year=year, reg_odometer=regOdometer,
+                          avg_fuel_cons=avgFuelCons, vehicle_tank_cap=vehicleTankCap, user_id=current_user.id)
+        db.session.add(new_veh)
+        db.session.commit()
+        flash('DONE', category= 'success')
     return render_template("my_cars.html", user=current_user)

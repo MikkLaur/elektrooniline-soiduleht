@@ -133,3 +133,6 @@ dmypy.json
 
 # VSC
 .vscode/
+
+#database
+/website/*.db

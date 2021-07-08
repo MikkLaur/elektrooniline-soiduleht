@@ -32,31 +32,50 @@
             <h2 class="uk-modal-title">Add Car</h2>
         </div>
         <div class="uk-modal-body">
-            <form class="uk-form-horizontal">
+            <form class="uk-form-horizontal" method = "POST">
                 <div class="uk-margin">
-                    <label class="uk-form-label" for="form-horizontal-text">Car make<span style="color: red;">*</span></label>
+                    <label class="uk-form-label" for="form-horizontal-text">make<span style="color: red;">*</span></label>
                     <div class="uk-inline">
-                        <input class="uk-input" type="text" placeholder="Make">
+                        <input class="uk-input" name="make" type="text" placeholder="Make">
                     </div>
                 </div>
                 <div class="uk-margin">
-                    <label class="uk-form-label" for="form-horizontal-text">Car model<span style="color: red;">*</span></label>
+                    <label class="uk-form-label" for="form-horizontal-text">model<span style="color: red;">*</span></label>
                     <div class="uk-inline">
-                        <input class="uk-input" type="text" placeholder="Model">
+                        <input class="uk-input" name="model" type="text" placeholder="Model">
                     </div>
                 </div>
                 <div class="uk-margin">
-                    <label class="uk-form-label" for="form-horizontal-text">Car year<span style="color: red;">*</span></label>
+                    <label class="uk-form-label" for="form-horizontal-text">year<span style="color: red;">*</span></label>
                     <div class="uk-inline">
-                        <input class="uk-input" type="number" placeholder="YEAR">
+                        <input class="uk-input" name="year" type="number" placeholder="YEAR">
                     </div>
                 </div>
-            </form>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-horizontal-text">Odometer<span style="color: red;">*</span></label>
+                    <div class="uk-inline">
+                        <input class="uk-input" name="regOdometer" type="number" placeholder="YEAR">
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-horizontal-text">Fuel consumption<span style="color: red;"></span></label>
+                    <div class="uk-inline">
+                        <input class="uk-input" name="avgFuelCons" type="number" placeholder="Fuelconsumption">
+                    </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-horizontal-text">Tank Capacity<span style="color: red;">*</span></label>
+                    <div class="uk-inline">
+                        <input class="uk-input" name="tankCap" type="number" placeholder="TankCapacity">
+                    </div>
+                </div>
+
         </div>
-        <div class="uk-modal-footer uk-text-right">
-            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-            <button class="uk-button sign-button" type="button">Add Car</button>
+            <div class="uk-modal-footer uk-text-right">
+                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+                <button class="uk-button sign-button" type="submit">Add Car</button>
+            </div>
         </div>
+        </form>
     </div>
 </div>
 
@@ -66,7 +85,7 @@
             <div class="r-card repair-card uk-card uk-card-hover uk-card-body">  <!--- HREF TO OPEN MAINTENANCE! --->
                 <div class="r-hover uk-overlay uk-overlay-primary uk-position-bottom uk-text-center">
                     <h3 class="uk-margin-remove">MAINTENANCE</h3>
-                    <p class="uk-margin-remove">Click to add maitenance entry.</p>
+                    <p class="uk-margin-remove">coming soon...</p>
                 </div>
             </div>
         </div>
@@ -76,6 +95,55 @@
                     <h3 class="uk-margin-remove">REFILL</h3>
                     <p class="uk-margin-remove">Click to add refill entry.</p>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="modal-full" class="uk-modal-full" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
+        <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
+            <div class="uk-modal-close uk-background-cover" style="background-image: url('../static/images/back11.jpg');" uk-height-viewport></div>
+            <div class="uk-padding-large">
+                <h1>Refill Entry</h1>
+                <!--<p>Add refill entry</p>-->
+                <form class="uk-form-stacked">
+                    <label class="uk-form-label" for="form-stacked-text1">Refill Date</label>
+
+                        <div class="uk-inline">
+                            <span style="color:#FF5A09; cursor: pointer!important;" class="uk-form-icon uk-form-icon-flip" uk-icon="icon: calendar"></span>
+                            <input class="uk-input refill-input" id="datepicker" placeholder="DD/MM/YYYY" />
+                        </div>
+
+                    <script>
+                        $('#datepicker').datepicker({
+                            uiLibrary: 'bootstrap4'
+                        });
+                    </script>
+
+
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="form-stacked-text1">Refill Size</label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input refill-input" id="form-stacked-text1" type="number" placeholder="00.00">
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="form-stacked-text2">Refill Price</label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input refill-input" id="form-stacked-text2" type="number" placeholder="00.00">
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <label class="uk-form-label" for="form-stacked-text3">Odometer</label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input refill-input" id="form-stacked-text3" type="number" placeholder="000000">
+                        </div>
+                    </div>
+                    <button class="refill-btn uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Add Refill Entry</button>
+                </form>
             </div>
         </div>
     </div>

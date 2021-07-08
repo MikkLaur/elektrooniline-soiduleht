@@ -1,5 +1,5 @@
-# elektrooniline-soiduleht
-Logbook of your favorite vehicles!
+# FillTrip
+Keep track of your car!
 
 ## Setup and run instructions
 
