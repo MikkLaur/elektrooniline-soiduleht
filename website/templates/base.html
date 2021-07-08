@@ -32,13 +32,33 @@ and open the template in the editor.
   </head>
 
   <body>
+
+    <!--- PYTHON FLASHING NOTIFICATIONS MUST BE LATER REPAIRED --->
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %} {% if category ==
+    'error' %}
+    <div class="alert alert-danger alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% else %}
+    <div class="alert alert-success alter-dismissable fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %}
+
     <div class="overlay" uk-parallax="target: #test-filter; blur: 0,10;">
             <div class="wrapper">
                 <header class="desktop">
                     <nav class="uk-navbar-container uk-margin nav-padding" uk-navbar>
                         <div class="uk-navbar-left">
 
-                            <a class="uk-navbar-item uk-logo" style="color: white;" href="#"><span style="color:#FF5A09">L</span>ogo</a>
+                            <a class="uk-navbar-item uk-logo" style="color: white;" href="/"><span style="color:#FF5A09">Trip</span>Fill</a>
                         </div>
 
                         <div class="uk-navbar-center">
@@ -65,11 +85,11 @@ and open the template in the editor.
                         <div class="uk-navbar-right">
                             <ul class="uk-navbar-nav">
                                 <li>
-                                    <a style="color: white;" href="/profil">My profile</a>
+                                    <a style="color: white;" href="/account">My profile</a>
                                     <div class="uk-navbar-dropdown">
                                         <ul class="uk-nav uk-navbar-dropdown-nav">
-                                            <li><a href="#">My Cars</a></li>
-                                            <li><a href="#">Edit Profile</a></li>
+                                            <li><a href="/mycars">My Cars</a></li>
+                                            <li><a href="fuckyoubitch">Edit Profile</a></li>
                                             <li class="uk-nav-divider"></li>
                                             <li><a style="color:#FF5A09" href="/logout">Logout</a></li>
                                         </ul>
@@ -212,35 +232,20 @@ and open the template in the editor.
                     </div>
                 </div>
             </div>
+
             <div class="intro-row">
                 <article>
-                    <div class="intro-text uk-animation-fade uk-animation-slow">
-                        <h1>SÕIDULEHT</h1>
-                        <p>Keep track of your car</p>
-                    </div>
+
+                <div class="intro-text uk-animation-fade uk-animation-slow">
+                   {% block article %}
+
+                    {% endblock %}
+                </div>
                 </article>
             </div>
         </div>
 
 
-        <!--- PYTHON FLASHING NOTIFICATIONS MUST BE LATER REPAIRED --->
-        {% with messages = get_flashed_messages(with_categories=true) %} {% if
-        messages %} {% for category, message in messages %} {% if category ==
-        'error' %}
-        <div class="alert alert-danger alter-dismissable fade show" role="alert">
-          {{ message }}
-          <button type="button" class="close" data-dismiss="alert">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        {% else %}
-        <div class="alert alert-success alter-dismissable fade show" role="alert">
-          {{ message }}
-          <button type="button" class="close" data-dismiss="alert">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        {% endif %} {% endfor %} {% endif %} {% endwith %}
 
 
         <div class="container">{% block content %} {% endblock %}</div>

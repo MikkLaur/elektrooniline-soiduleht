@@ -1,311 +1,84 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <!-- Main CSS -->
-        <link href="css/main.css" rel="stylesheet" type="text/css"/>
-        <!-- UIkit CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/css/uikit.min.css" />
+{% extends "base.html" %} {% block title %}MyCars{% endblock %}
 
-        <!-- UIkit JS -->
-        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.20/dist/js/uikit-icons.min.js"></script>
-
-        <!-- Bootstrap -->
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-        <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-        <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-
-    </head>
-    <body>
-        <div class="overlay" uk-parallax="target: #test-filter; blur: 0,10;">
-            <div class="wrapper">
-                <header class="desktop">
-                    <nav class="uk-navbar-container uk-margin nav-padding" uk-navbar>
-                        <div class="uk-navbar-left">
-
-                            <a class="uk-navbar-item uk-logo" style="color: white;" href="index.html"><span style="color:#FF5A09">L</span>ogo</a>
-                        </div>
-
-                        <div class="uk-navbar-center">
-                            <ul class="uk-navbar-nav">
-                                <li class="uk-active"><a style="color: #FF5A09;" href="#">Home</a></li>
-                                <li><a style="color: white;" href="#">About Us</a></li>
-                                <li><a style="color: white;" href="#">Contact Us</a></li>
-                                <!--<li>
-                                    <a style="color: white;" href="#">About Us</a>
-                                    <div class="uk-navbar-dropdown">
-                                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                                            <li class="uk-active"><a style="color: white;" href="#">Contact Us</a></li>
-                                            <li><a href="#">Item</a></li>
-                                            <li><a href="#">Item</a></li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li><a style="color: white;" href="#">Item</a></li>-->
-                            </ul>
-                        </div>
+{% block article %}
+    <h1 class="uk-text-bold">MY CARS</h1>
+{% endblock %}
 
 
-
-                        <div class="uk-navbar-right">
-                            <ul class="uk-navbar-nav">
-                                <li><a style="color: white;" href="#modal-group-2" uk-toggle>Sign in / Sign up</a></li>
-                            </ul>
-                        </div>
+{% block content%}
 
 
+<div class="second-row m-c-first-row">
+    <hr>
+    <img class="uk-border-circle" src="../static/images/audi.jpg" width="200" height="200" alt="Border circle">
+    <h2>Audi A4</h2>
+    <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">Year: </span>2005</p>
+    <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">Odometer: </span>180000</p>
+    <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">Add shit here: </span>and here</p>
+    <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">Add shit here: </span>and here</p>
 
-                    </nav>
-                </header>
-                <header class="mobile">
-                    <nav class="uk-navbar-container uk-margin nav-padding" uk-navbar>
-                        <div class="uk-navbar-center">
+    <hr>
+    <p uk-margin>
+        <a class="uk-button uk-button-default m-c-btn-add" href="#modal-sections" uk-toggle>Add another car</a>
+        <button class="uk-button uk-button-default m-c-btn-remove">Remove this car</button>
+    </p>
+    <hr>
+</div>
 
-                            <a class="uk-navbar-item uk-logo" style="color: white;" href="#"><span style="color:#FF5A09">L</span>ogo</a>
-                        </div>
-
-                        <div class="uk-navbar-left">
-                            <a class="uk-navbar-toggle" href="#">
-                                <a href="#offcanvas-slide" style="color:white;text-decoration: none;" uk-toggle><span style="color:#FF5A09;" uk-navbar-toggle-icon></span> Menu</a>
-                            </a>
-                        </div>
-
-                        <div id="offcanvas-slide" uk-offcanvas>
-                            <div class="uk-offcanvas-bar">
-
-                                <ul class="uk-nav uk-nav-default">
-                                    <li class="uk-nav-header" style="padding-bottom: 28px;">Header</li>
-                                    <li class="uk-nav-divider"></li>
-                                    <li class="active"><a href="#" style="color:#FF5A09">Home</a></li>
-                                    <li><a href="#">About Us</a></li>
-                                    <li><a href="#">Contact Us</a></li>
-                                    <li class="uk-nav-divider"></li>
-                                    <li><a style="color: white;" href="#modal-group-2" uk-toggle>Sign in / Sign up</a></li>
-                                </ul>
-
-                            </div>
-                        </div>
-                    </nav>
-                </header>
-
-
-                <div id="modal-group-2" uk-modal>
-                    <div class="uk-modal-dialog">
-                        <button class="uk-modal-close-default" type="button" uk-close></button>
-                        <div class="uk-modal-header">
-                            <!--<h2 class="uk-modal-title">Headline 2</h2>-->
-                            <ul uk-tab>
-                                <li><a href="#">Sing In</a></li>
-                                <li><a href="#">Sign Up</a></li>
-                            </ul>
-
-                            <ul class="uk-switcher uk-margin">
-                                <li>
-                                    <form class="uk-form-horizontal">
-                                        <div class="uk-margin">
-                                            <label class="uk-form-label" for="form-horizontal-text">E-mail<span style="color: red;">*</span></label>
-                                            <div class="uk-inline">
-                                                <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                                                <input class="uk-input" type="email" placeholder="email@gmail.com">
-                                            </div>
-                                        </div>
-                                        <div class="uk-margin">
-                                            <label class="uk-form-label" for="form-horizontal-text">Password<span style="color: red;">*</span></label>
-                                            <div class="uk-inline">
-                                                <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                                                <input class="uk-input" type="password" placeholder="••••••••">
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <div class="uk-modal-footer uk-text-right">
-                                        <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                                        <a href="#modal-group-2" class="uk-button sign-button" uk-toggle>Sign In</a>
-                                    </div>
-                                </li>
-
-
-
-                                <li>
-                                    <form class="uk-form-horizontal">
-                                        <div class="uk-margin">
-                                            <label class="uk-form-label" for="form-horizontal-text">E-mail<span style="color: red;">*</span></label>
-                                            <div class="uk-inline">
-                                                <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                                                <input class="uk-input" type="email" placeholder="email@gmail.com">
-                                            </div>
-                                        </div>
-                                        <div class="uk-margin">
-                                            <label class="uk-form-label" for="form-horizontal-text">Full Name<span style="color: red;">*</span></label>
-                                            <div class="uk-inline">
-                                                <span class="uk-form-icon" uk-icon="icon: user"></span>
-                                                <input class="uk-input" type="name" placeholder="John Lynch">
-                                            </div>
-                                        </div>
-                                        <div class="uk-margin">
-                                            <label class="uk-form-label" for="form-horizontal-text">Password<span style="color: red;">*</span></label>
-                                            <div class="uk-inline">
-                                                <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                                                <input class="uk-input" type="password" placeholder="••••••••">
-                                            </div>
-                                        </div>
-                                        <div class="uk-margin">
-                                            <label class="uk-form-label" for="form-horizontal-text">Confirm Password<span style="color: red;">*</span></label>
-                                            <div class="uk-inline">
-                                                <span class="uk-form-icon" uk-icon="icon: lock"></span>
-                                                <input class="uk-input" type="password" placeholder="••••••••">
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <div class="uk-modal-footer uk-text-right">
-                                        <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                                        <a href="#modal-group-2" class="uk-button sign-button" uk-toggle>Sign Up</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-
+<div id="modal-sections" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title">Add Car</h2>
+        </div>
+        <div class="uk-modal-body">
+            <form class="uk-form-horizontal">
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-horizontal-text">Car make<span style="color: red;">*</span></label>
+                    <div class="uk-inline">
+                        <input class="uk-input" type="text" placeholder="Make">
                     </div>
                 </div>
-            </div>
-            <div class="intro-row">
-                <article>
-                    <div class="intro-text uk-animation-fade uk-animation-slow">
-                        <h1 class="uk-text-bold">MY CARS</h1>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-horizontal-text">Car model<span style="color: red;">*</span></label>
+                    <div class="uk-inline">
+                        <input class="uk-input" type="text" placeholder="Model">
                     </div>
-                </article>
-            </div>
-        </div>
-
-        <div class="second-row m-c-first-row">
-            <hr>
-            <img class="uk-border-circle" src="images/audi.jpg" width="200" height="200" alt="Border circle">
-            <h2>Audi A4</h2>
-            <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">Year: </span>2005</p>
-            <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">Odometer: </span>180000</p>
-            <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">Add shit here: </span>and here</p>
-            <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">Add shit here: </span>and here</p>
-
-            <hr>
-            <p uk-margin>
-                <a class="uk-button uk-button-default m-c-btn-add" href="#modal-sections" uk-toggle>Add another car</a>
-                <button class="uk-button uk-button-default m-c-btn-remove">Remove this car</button>
-            </p>
-            <hr>
-        </div>
-
-        <div id="modal-sections" uk-modal>
-            <div class="uk-modal-dialog">
-                <button class="uk-modal-close-default" type="button" uk-close></button>
-                <div class="uk-modal-header">
-                    <h2 class="uk-modal-title">Add Car</h2>
                 </div>
-                <div class="uk-modal-body">
-                    <form class="uk-form-horizontal">
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="form-horizontal-text">Car make<span style="color: red;">*</span></label>
-                            <div class="uk-inline">
-                                <input class="uk-input" type="text" placeholder="Make">
-                            </div>
-                        </div>
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="form-horizontal-text">Car model<span style="color: red;">*</span></label>
-                            <div class="uk-inline">
-                                <input class="uk-input" type="text" placeholder="Model">
-                            </div>
-                        </div>
-                        <div class="uk-margin">
-                            <label class="uk-form-label" for="form-horizontal-text">Car year<span style="color: red;">*</span></label>
-                            <div class="uk-inline">
-                                <input class="uk-input" type="number" placeholder="YEAR">
-                            </div>
-                        </div>
-                    </form>
+                <div class="uk-margin">
+                    <label class="uk-form-label" for="form-horizontal-text">Car year<span style="color: red;">*</span></label>
+                    <div class="uk-inline">
+                        <input class="uk-input" type="number" placeholder="YEAR">
+                    </div>
                 </div>
-                <div class="uk-modal-footer uk-text-right">
-                    <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                    <button class="uk-button sign-button" type="button">Add Car</button>
+            </form>
+        </div>
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            <button class="uk-button sign-button" type="button">Add Car</button>
+        </div>
+    </div>
+</div>
+
+<div class="second-row" style="background-color:#c7c7c7">
+    <div class="uk-child-width-1-2@m uk-grid-small uk-grid-match" uk-grid>
+        <div>
+            <div class="r-card repair-card uk-card uk-card-hover uk-card-body">  <!--- HREF TO OPEN MAINTENANCE! --->
+                <div class="r-hover uk-overlay uk-overlay-primary uk-position-bottom uk-text-center">
+                    <h3 class="uk-margin-remove">MAINTENANCE</h3>
+                    <p class="uk-margin-remove">Click to add maitenance entry.</p>
                 </div>
             </div>
         </div>
-
-        <div class="second-row" style="background-color: #c7c7c7;">
-            <div class="uk-child-width-1-2@m uk-grid-small uk-grid-match" uk-grid>
-                <div>
-                    <div class="r-card repair-card uk-card uk-card-hover uk-card-body">
-                        <div class="r-hover uk-overlay uk-overlay-primary uk-position-bottom uk-text-center">
-                            <h3 class="uk-margin-remove">REPAIR</h3>
-                            <p class="uk-margin-remove">Click to add repair entry.</p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="r-card refill-card uk-card uk-card-hover uk-card-body" href="#modal-full" uk-toggle>
-                        <div class="r-hover uk-overlay uk-overlay-primary uk-position-bottom uk-text-center">
-                            <h3 class="uk-margin-remove">REFILL</h3>
-                            <p class="uk-margin-remove">Click to add refill entry.</p>
-                        </div>
-                    </div>
+        <div>
+            <div class="r-card refill-card uk-card uk-card-hover uk-card-body" href="#modal-full" uk-toggle> <!--- HREF TO OPEN REFILL --->
+                <div class="r-hover uk-overlay uk-overlay-primary uk-position-bottom uk-text-center">
+                    <h3 class="uk-margin-remove">REFILL</h3>
+                    <p class="uk-margin-remove">Click to add refill entry.</p>
                 </div>
             </div>
         </div>
-        <div id="modal-full" class="uk-modal-full" uk-modal>
-            <div class="uk-modal-dialog">
-                <button class="uk-modal-close-full uk-close-large" type="button" uk-close></button>
-                <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
-                    <div class="uk-background-cover" style="background-image: url('images/back11.jpg');" uk-height-viewport></div>
-                    <div class="uk-padding-large">
-                        <h1>Refill Entry</h1>
-                        <!--<p>Add refill entry</p>-->
-                        <form class="uk-form-stacked">
-                            <label class="uk-form-label" for="form-stacked-text">Refill Date</label>
+    </div>
+</div>
 
-                            <div class="uk-inline">
-                                <span style="color:#FF5A09; cursor: pointer!important;" class="uk-form-icon uk-form-icon-flip" uk-icon="icon: calendar"></span>
-                                <input class="uk-input refill-input" id="datepicker" placeholder="DD/MM/YYYY" />
-                            </div>
-
-                            <script>
-                                $('#datepicker').datepicker({
-                                    uiLibrary: 'bootstrap4'
-                                });
-                            </script>
-
-
-                            <div class="uk-margin">
-                                <label class="uk-form-label" for="form-stacked-text">Refill Size</label>
-                                <div class="uk-form-controls">
-                                    <input class="uk-input refill-input" id="form-stacked-text" type="number" placeholder="00.00">
-                                </div>
-                            </div>
-                            <div class="uk-margin">
-                                <label class="uk-form-label" for="form-stacked-text">Refill Price</label>
-                                <div class="uk-form-controls">
-                                    <input class="uk-input refill-input" id="form-stacked-text" type="number" placeholder="00.00">
-                                </div>
-                            </div>
-                            <div class="uk-margin">
-                                <label class="uk-form-label" for="form-stacked-text">Odometer</label>
-                                <div class="uk-form-controls">
-                                    <input class="uk-input refill-input" id="form-stacked-text" type="number" placeholder="000000">
-                                </div>
-                            </div>
-                            <button class="refill-btn uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Add Refill Entry</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <footer>
-            <p>Copyright © 2021. All Rights Reserved.</p>
-        </footer>
-    </body>
-</html>
+{% endblock %}

@@ -62,4 +62,11 @@ def record(vehicle_id):
 @login_required
 def account():
 
-    return render_template("account.html")
+    return render_template("account.html", user=current_user)
+
+
+@views.route('/mycars')
+@login_required
+def mycars():
+
+    return render_template("my_cars.html", user=current_user)
