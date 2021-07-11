@@ -10,19 +10,32 @@
 
 <div class="second-row m-c-first-row">
     <hr>
-    <div class="car-logo-container uk-flex uk-flex-center">
-    <img class="uk-border-circle car-logo-selector" src="images/audi.jpg" alt="Border circle">
-    <img class="uk-border-circle car-logo-selector active-car" src="images/audi.jpg" alt="Border circle">
-    <img class="uk-border-circle car-logo-selector" src="images/audi.jpg" alt="Border circle">
-    </div>
-    <hr>
-    <img class="uk-border-circle" src="images/audi.jpg" width="200" height="200" alt="Border circle">
-    <h2>Audi A4</h2>
-    <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">Year: </span>2005</p>
-    <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">Odometer: </span>180000</p>
-    <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">Add shit here: </span>and here</p>
-    <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">Add shit here: </span>and here</p>
+    {% if user.vehicles|length > 0 or user.vehicles|length < 3%}
 
+    <div class="car-logo-container uk-flex uk-flex-center">
+    {% for veh in user.vehicles %}
+        {% if user.vehicles.index(veh) == 1%}
+        <img class="uk-border-circle car-logo-selector active-car" src="../static/images/audi.jpg" alt="Border circle">
+        {% else %}
+        <img class="uk-border-circle car-logo-selector" src="../static/images/audi.jpg" alt="Border circle">
+        {% endif %}
+    {% endfor %}
+
+    </div>
+    {% else %}
+        <p>Can't add anymore vehicles! Too much! Please upgrade to PREMIUM subscription!</p>
+    {% endif %}
+    <hr>
+    <img class="uk-border-circle" src="../static/images/audi.jpg" width="200" height="200" alt="Border circle">
+     {% for veh in user.vehicles %}
+    <h2>{{ veh.mark }}</h2>
+    <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">Model: </span>{{ veh.model }}</p>
+    <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">Year: </span>{{ veh.year }}</p>
+    <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">Odometer: </span>{{ veh.reg_odometer }}</p>
+    <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">avg fuel cons: </span>{{ veh.avg_fuel_cons }}</p>
+    <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">Tank Cap: </span>{{ veh.vehicle_tank_cap }}</p>
+    <p class="uk-text-default uk-text-emphasis"><span class="uk-text-bold">OWNER ID: </span>{{ veh.user_id }}</p>
+    {% endfor %}
     <hr>
     <p uk-margin>
         <a class="uk-button uk-button-default m-c-btn-add" href="#modal-sections" uk-toggle>Add another car</a>
@@ -38,6 +51,7 @@
             <h2 class="uk-modal-title">Add Car</h2>
         </div>
         <div class="uk-modal-body">
+            {% if user.vehicles|length < 3 %}
             <form class="uk-form-horizontal" method = "POST">
                 <div class="uk-margin">
                     <label class="uk-form-label" for="form-horizontal-text">make<span style="color: red;">*</span></label>
@@ -75,12 +89,22 @@
                     </div>
                 </div>
 
+                {% else %}
+                     <h3>can't add any vehicles, please buy PREMIUM subscription</h3>
+                {% endif %}
+
         </div>
-            <div class="uk-modal-footer uk-text-right">
-                <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                <button class="uk-button sign-button" type="submit">Add Car</button>
-            </div>
+                
+        <div class="uk-modal-footer uk-text-right">
+            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
+            {% if user.vehicles|length < 3 %}
+            <button class="uk-button sign-button" type="submit">Add Car</button>
+            {% else %}
+             <p>Learn more about Premium www.tripfill.ee/premium</p>
+            {% endif %}
+
         </div>
+
         </form>
     </div>
 </div>
