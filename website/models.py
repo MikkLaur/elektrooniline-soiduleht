@@ -13,11 +13,11 @@ class User(db.Model, UserMixin):
 
 # Links User and Vehicle table together in a many-to-many relation
 #  A vehicle may have multiple owners/users
-class UserToVehicles(db.Model):
+class UsersToVehicles(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.DateTime(timezone=True), default=func.now())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    vehicle_id = user_id = db.Column(db.Integer, db.ForeignKey('vehicle.id'))
+    vehicle_id = db.Column(db.Integer, db.ForeignKey('vehicle.id'))
 
 class Vehicle(db.Model):
     id = db.Column(db.Integer, primary_key=True)
