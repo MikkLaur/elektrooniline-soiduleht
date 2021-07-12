@@ -299,6 +299,7 @@ footer p
     border-top: #FF5A09!important;
     border-right: #FF5A09!important;
     border-radius: 0!important;
+    //color: white!important;
 }
 .uk-form-label
 {
@@ -445,5 +446,36 @@ footer p
     background-color: #d20d0d!important;
 }
 
+.car-logo-selector
+{
+    margin: 10px;
+    width: 75px;
+    height: 75px;
+}
+.car-logo-selector:hover
+{
+    margin: 10px;
+    width: 86px;
+    height: 86px;
+    box-shadow: 0px 0px 14px rgb(0 0 0)!important;
+}
 
+.active-car
+{
+    width: 100px;
+    height: 100px;
+    box-shadow: 0px 0px 20px rgb(0 0 0)!important;
+}
 
+.active-car:hover
+{
+    width: 100px;
+    height: 100px;
+    box-shadow: 0px 0px 20px rgb(0 0 0)!important;
+}
+
+.car-logo-container
+{
+    height: 120px;
+    text-align: center;
+}
